@@ -1,0 +1,266 @@
+* {
+    outline: 1px solid rgb(241, 228, 225);
+}
+
+
+/* color size 등을 정의해놓고 쓰기 변수 선언해서 쓰기 */
+:root {
+    --line: #f2f2f2;
+    --wc: #ffffff;
+    --gc50: rgba(0, 0, 0, .5);
+    --bs: 60rem;
+}
+
+/* 이렇게도 쓸수 있음 h3에 클래스 줘서.bs /  {
+    font-size: var(--bs);
+} */
+
+
+
+/* px단위로 작게 쓸 경우 remX px단위로씀 반응형갔을때 문제 */
+#Header {
+    border-bottom: 1px solid var(--line);
+}
+
+#Header h1 {
+    flex: 1 0 170rem;
+}
+
+#Header .inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100rem;
+}
+
+
+@media (max-width: 540px) {
+
+    /* 로고 나오게 하기 */
+    #Header h1 {
+        position: fixed;
+        z-index: 1001;
+    }
+}
+
+
+#gnb>ul {
+    display: flex;
+    gap: 40px;
+}
+
+
+@media (max-width: 540px) {
+    #gnb {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        z-index: 1000;
+        width: 100%;
+        height: 100vh;
+        background: var(--wc);
+    }
+
+    #gnb.on {
+        left: 0;
+    }
+
+    #gnb>ul {
+        padding: 100rem 30rem 0 30rem;
+        flex-direction: column;
+        gap: 0;
+    }
+}
+
+.mobile_btn {
+    display: none;
+}
+
+@media (max-width: 540px) {
+    .search_area {
+        display: none;
+    }
+
+    .mobile_btn {
+        display: block;
+
+        position: fixed;
+        top: 30rem;
+        right: 30rem;
+        z-index: 1000;
+    }
+
+    .mobile_btn i {
+        padding: 10rem;
+        font-size: 20rem;
+        background: var(--line);
+        border-radius: 3px;
+    }
+}
+
+#MainVisual {
+    position: relative;
+}
+
+
+/* 폰트는 바깥박스에 x 폰트가 직접 주는 박스에다가 주기 */
+
+#MainVisual .main_slide .itm {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: calc(100vh - 300rem);
+}
+
+#MainVisual .main_slide .slogan {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    max-width: 1200rem;
+    width: 100%;
+    padding: 0 15rem;
+}
+
+#MainVisual .main_slide .slogan h3 {
+    color: var(--wc);
+    font-size: var(--bs);
+    font-weight: 700;
+    text-transform: uppercase;
+    text-shadow: 10rem 10rem 10rem rgba(0, 0, 0, .5);
+    margin: 0 0 20rem 0;
+}
+
+#MainVisual .main_slide .slogan p {
+    color: var(--wc);
+    text-shadow: 10rem 10rem 10rem rgba(0, 0, 0, .5);
+}
+
+
+#MainVisual .main_slide .itm01 {
+    background: url(../images/mainvisual01.jpg) no-repeat center center/cover;
+}
+
+#MainVisual .main_slide .itm02 {
+    background: url(../images/mainvisual02.jpg) no-repeat center center/cover;
+}
+
+#MainVisual .main_slide .itm03 {
+    background: url(../images/mainvisual03.jpg) no-repeat center center/cover;
+}
+
+#MainVisual .arrows {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+
+    max-width: 1400rem;
+    width: 100%;
+    padding: 0 15rem;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+#MainVisual .arrows i {
+    padding: 10rem;
+    background: var(--gc50);
+    border-radius: 50%;
+    font-size: 20px;
+    color: var(--wc);
+
+}
+
+@media (max-width: 540px) {
+    #MainVisual .main_slide .slogan h3 {
+        font-size: 40rem;
+    }
+
+}
+
+#MainContent .inner {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30rem;
+}
+
+#MainContent .img_box {
+    margin: 0 0 20rem 0;
+}
+
+#MainContent figure strong {
+    display: block;
+    margin: 0 0 20rem 0;
+    font-weight: 500;
+}
+
+@media (max-width: 540px) {
+    #MainContent .inner {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+
+
+#MainEvent {
+    background: var(--line);
+}
+
+#MainEvent .sbar {
+    position: relative;
+    max-width: 1170rem;
+    margin: 30rem auto;
+    background: var(--gc50);
+
+    height: 5rem;
+    border-radius: 10rem;
+    overflow: hidden;
+}
+
+#MainEvent .sbar span {
+    background: rgb(255, 197, 71);
+
+}
+
+#Footer .inner {
+    display: grid;
+    grid-template-columns: 150rem 1fr;
+    gap: 30rem;
+}
+
+@media (max-width: 540px) {
+    #Footer .inner {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+/* 새로 나온 기능 
+#Footer {
+    inner {
+        display: grid;
+        grid-template-columns: 150rem 1fr;
+        gap: 30rem;
+    }
+
+} */
+
+/* 새로 나온 방법
+@media (width <=798px) {
+    #Footer {
+        & address {
+            color: blue;
+        }
+
+        inner {
+            display: grid;
+            grid-template-columns: 150rem 1fr;
+            gap: 30rem;
+        }
+    }
+
+} */
